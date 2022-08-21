@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title></title>
+    </head>
+    <body>
+        <script type="module">
+            import { ref, effect, toRef, reactive } from '../src/reactive.js'
+            const obj = reactive({
+                name: '小浪',
+            })
+            // const obj = {
+            //     name: '小浪',
+            // }
+            const age = toRef(obj, 'age')
+            age.value = 21
+            console.log(obj)
+
+            effect(() => {
+                age.value = 22
+            })
+            console.log(obj)
+        </script>
+    </body>
+</html>

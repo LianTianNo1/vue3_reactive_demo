@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title></title>
+    </head>
+    <body>
+        <script type="module">
+            import { reactive } from '../src/reactive.js'
+
+            const obj = {
+                name: '小浪',
+                age: 22,
+                test: {
+                    test1: {
+                        test2: 21,
+                    },
+                },
+            }
+
+            const proxy = reactive(obj)
+            console.log(proxy.age)
+            proxy.test.test1.test2 = 22
+            console.log(delete proxy.age)
+        </script>
+    </body>
+</html>
